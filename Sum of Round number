@@ -1,0 +1,38 @@
+import java.util.*;
+import java.io.*;
+public class Test {
+    public static void main(String args[]) {
+ 
+      try {  
+          FileInputStream instream = new FileInputStream("input.txt"); 
+          System.setIn(instream);  
+          PrintStream outstream = new PrintStream(new FileOutputStream("output.txt")); 
+          System.setOut(outstream);      
+      } catch (Exception e) {} 
+
+      Scanner sc=new Scanner(System.in);
+      int t=sc.nextInt();
+      int n=0,a=0,l=0;
+      List<Integer> list=new ArrayList<>();
+      while(t--!=0){
+          n=sc.nextInt();
+          while(n!=0){
+              a=n%10;
+              if(a!=0){
+                   if (l==0) list.add(a);
+                   else list.add(a*l);
+       
+              }
+              n=n/10;
+              if (l==0)l=10;
+              else l*=10;
+          }
+          System.out.println(list.size());
+          for (Integer x:list) System.out.print(x+" ");
+            System.out.println();
+            list.clear();
+          l=0;
+      }
+    
+    }
+}
