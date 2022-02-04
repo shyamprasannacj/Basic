@@ -1,0 +1,29 @@
+import java.util.*;
+import java.io.*;
+public class Test {
+    public static void main(String args[]) {
+ 
+      try {  
+          FileInputStream instream = new FileInputStream("input.txt"); 
+          System.setIn(instream);  
+          PrintStream outstream = new PrintStream(new FileOutputStream("output.txt")); 
+          System.setOut(outstream);      
+      } catch (Exception e) {} 
+      Scanner sc=new Scanner(System.in);
+      String s=sc.next();
+      String res="";
+        
+      for (int i=0;i<s.length() ;i++){
+          if (s.charAt(0)=='9' && i==0){
+               res+=s.charAt(i);
+          }
+          else if (9-(s.charAt(i)-'0')<s.charAt(i)-'0'){
+            res+=String.valueOf(9-(s.charAt(i)-'0'));
+          }
+          else{
+            res+=s.charAt(i);
+          }
+      }
+      System.out.print(res);
+    }
+}
