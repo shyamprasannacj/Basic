@@ -1,0 +1,30 @@
+import java.util.*;
+import java.io.*;
+public class Test {
+    public static void main(String args[]) {
+ 
+      try {  
+          FileInputStream instream = new FileInputStream("input.txt"); 
+          System.setIn(instream);  
+          PrintStream outstream = new PrintStream(new FileOutputStream("output.txt")); 
+          System.setOut(outstream);      
+      } catch (Exception e) {} 
+      Scanner sc=new Scanner(System.in);
+      int x=0,y=0,n=0;
+      for (int i=0;i<5;i++){
+        for(int j=0;j<5;j++){
+            n=sc.nextInt();
+            if (n==1){
+              x=i;y=j;
+            }
+        }
+        if (n==1) break;
+      }
+      int res=0;
+      if (2-x>=0) res+=(2-x);
+      if(x-2>=0) res+=(x-2);
+      if (2-y>=0) res+=(2-y);
+      if(y-2>=0) res+=(y-2);
+      System.out.print(res);
+    }
+}
