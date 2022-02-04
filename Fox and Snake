@@ -1,0 +1,37 @@
+import java.util.*;
+import java.io.*;
+public class Test {
+    public static void main(String args[]) {
+ 
+      try {  
+          FileInputStream instream = new FileInputStream("input.txt"); 
+          System.setIn(instream);  
+          PrintStream outstream = new PrintStream(new FileOutputStream("output.txt")); 
+          System.setOut(outstream);      
+      } catch (Exception e) {} 
+
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int m=sc.nextInt();
+      int x=m-1;
+      int flag=0;
+      for (int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if (flag==0)  System.out.print('#');
+            else if (flag==1 && j!=x) System.out.print('.');
+            else{
+              System.out.print('#');
+            }
+        }
+        if (flag==0){ 
+          flag=1;
+        }
+        else{
+            flag=0;
+            if (x!=0)x=0;
+            else x=m-1;
+        }
+        System.out.println();
+      }    
+    }
+}
