@@ -1,0 +1,46 @@
+import java.util.*;
+import java.io.*;
+public class Test {
+    public static void main(String args[]) {
+ 
+      try {  
+          FileInputStream instream = new FileInputStream("input.txt"); 
+          System.setIn(instream);  
+          PrintStream outstream = new PrintStream(new FileOutputStream("output.txt")); 
+          System.setOut(outstream);      
+      } catch (Exception e) {} 
+
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int arr[]=new int[n];
+      int minv=Integer.MAX_VALUE;
+      int maxv=Integer.MIN_VALUE;
+      for (int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+        maxv=Math.max(maxv,arr[i]);
+        minv=Math.min(minv,arr[i]);
+      }
+      int index=-1,temp=0,swap=0;
+      for (int i=0;i<n;i++){
+          if(arr[i]==maxv){
+              index=i;break;
+          }
+      }
+      while (index>0){
+          temp=arr[index];
+          arr[index]=arr[index-1];
+          arr[index-1]=temp;
+          index-=1;
+          swap+=1;
+      }
+      for (int i=0;i<n;i++){
+        if (arr[i]==minv) index=i;
+      }
+      System.out.println(swap+n-1-index);
+
+      
+
+
+  
+   }
+}
