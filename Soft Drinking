@@ -1,0 +1,30 @@
+import java.util.*;
+import java.io.*;
+public class Test {
+    public static void main(String args[]) {
+ 
+      try {  
+          FileInputStream instream = new FileInputStream("input.txt"); 
+          System.setIn(instream);  
+          PrintStream outstream = new PrintStream(new FileOutputStream("output.txt")); 
+          System.setOut(outstream);      
+      } catch (Exception e) {} 
+
+      Scanner sc=new Scanner(System.in);
+      int n=sc.nextInt();
+      int k=sc.nextInt();
+      int l=sc.nextInt();
+      int c=sc.nextInt();
+      int d=sc.nextInt();
+      int p=sc.nextInt();
+      int nl=sc.nextInt();
+      int np=sc.nextInt();
+
+      //int a=Math.min((k*l)/(nl*n),(c*d)/(n),(p)/(np*n));
+
+      int a=(k*l)/(nl*n);
+      int b=(c*d)/(n);
+      int x=(p)/(np*n);
+      System.out.println(Math.min(a,Math.min(b,x)));
+    }
+}
