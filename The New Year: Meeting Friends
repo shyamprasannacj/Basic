@@ -1,0 +1,20 @@
+import java.util.*;
+import java.io.*;
+public class Test {
+    public static void main(String args[]) {
+ 
+      try {  
+          FileInputStream instream = new FileInputStream("input.txt"); 
+          System.setIn(instream);  
+          PrintStream outstream = new PrintStream(new FileOutputStream("output.txt")); 
+          System.setOut(outstream);      
+      } catch (Exception e) {} 
+
+      Scanner sc=new Scanner(System.in);
+      int a=sc.nextInt();
+      int b=sc.nextInt();
+      int c=sc.nextInt();
+ 
+      System.out.print(Math.max(a,Math.max(b,c))-Math.min(a,Math.min(b,c)));
+    }
+}
