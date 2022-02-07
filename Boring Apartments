@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ 
+	#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+	#endif
+ 
+	int t;
+	cin>>t;
+	string s;
+	unordered_map<int,int>map;
+	map[1]=1;map[2]=3;map[3]=6;map[4]=10;
+	while(t--){
+		cin>>s;
+		cout<<(s[0]-'1')*10+map[s.size()]<<endl;
+	}
+	
+	return 0;
+}
