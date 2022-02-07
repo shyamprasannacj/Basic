@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	priority_queue<int,vector<int>,greater<int>>queue;
+	string s;
+	cin>>s;
+	int flag=1;
+	for(auto c:s){
+		if (flag==0){
+			flag=1;continue;
+		}
+		if (flag==1) flag=0;
+		queue.push(c-'0');
+	}
+	while(!queue.empty()){
+		cout<<queue.top();
+		queue.pop();
+		if (!queue.empty())
+		cout<<"+";
+	}
+	return 0;
+}
