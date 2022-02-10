@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+void print(auto mat){
+	cout<<endl;
+	for (auto x:mat){
+		for(auto y:x) cout<<y<<" ";
+		cout<<endl;
+	}
+	cout<<endl;
+}
+ 
+void solve(int i,int j,vector<vector<char>>& mat,int &res){
+		//cout<<i<<"  "<<j<<" "<<res<<endl;
+		if (i==mat.size()-1 && j==mat[0].size()) return;
+         if (i>=mat.size() ){
+         	mat[i-1][j]='R';
+         	res++;
+         	//cout<<i-1<<" "<<j<<endl;
+         	//print(mat);
+         	return ;
+         }
+         if(j>=mat[0].size()){
+         	mat[i][j-1]='D';
+         	res++;
+         	return;
+         }
+         if(mat[i][j]=='C') return;
+         else if (mat[i][j]=='D')  return solve(i+1,j,mat,res);
+         else if(mat[i][j]=='R') return solve(i,j+1,mat,res);
+ 
+ 
+}
+int main(){
+ 
+	#ifndef ONLINE_JUDGE
+	     freopen("input.txt", "r", stdin);
+   		 freopen("output.txt", "w", stdout);
+	#endif
+    int n,m,t;
+    cin>>t;
+    while(t--){
+    cin>>n>>m;
+	vector<vector<char>> mat(n,vector<char>(m));
+ 
+	int res=0;
+	for (int i=0;i<n;i++){
+		for (int j=0;j<m;j++){
+			cin>>mat[i][j];
+		}
+	}
+ 
+	//print(mat);
+	for (int i=0;i<n;i++){
+		for (int j=0;j<m;j++){
+		//	cout<<i<<" "<<j<<" ";
+			solve(i,j,mat,res);
+			//cout<<endl;
+			//print(mat);
+			
+		}
+	}
+	//print(mat);
+	cout<<res<<endl;}
+	return 0;
+}
